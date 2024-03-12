@@ -7,4 +7,10 @@ df_payments = pd.read_csv('data/olist_order_payments_dataset.csv')
 # Clean the DataFrame
 cleaned_df = CleanPayments.clean(df_payments)
 
-st.write(cleaned_df)
+# Display the DataFrame
+
+
+kpi_results = CleanPayments.kpi(df_payments)
+
+st.metric('Total Payment', kpi_results['Total Payment'])
+st.metric('Average Payment', kpi_results['Average Payment'])
