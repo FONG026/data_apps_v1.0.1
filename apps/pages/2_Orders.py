@@ -10,7 +10,15 @@ st.markdown(
     "<h1 style='text-align: center;'>Orders</h1>",
     unsafe_allow_html=True)
 
+# Creation d'un plot pour la geolocalisation
+geolocation = pd.read_csv('data/olist_geolocation_dataset.csv')
+data = geolocation
+st.write('Orders per Region')
+st.map(data, latitude='geolocation_lat', longitude='geolocation_lng', use_container_width=True)
+
 calculator = KpiCalculator('data/cleaned_payments.csv')
+
+
 
 # Custom page names in the sidebar
 selected_page = st.sidebar.radio("Go to",
